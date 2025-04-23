@@ -15,13 +15,12 @@
 <body>
     <div class="asosiy">
         <div class="konteyner" id="konteyner"></div>
-        <div class="hidden">
-            {%for i in jet%}
-                <h1>i.title</h1>
-                <img src="{{i.image}}" alt="">
-                <p>i.decription</p>
-            {%endfor%}
+        <div id="info-box" class="hidden absolute bg-white p-4 border rounded shadow-lg z-50">
+            <h1 id="info-title"></h1>
+            <img id="info-image" src="" alt="" style="width: 100px; height: 100px; object-fit: cover;">
+            <p id="info-description"></p>
         </div>
+        
     </div>
 
 

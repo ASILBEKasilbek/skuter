@@ -38,18 +38,41 @@ for (let i = 0; i < randomuy; i++) {
     uy_list.push([randomNum - 1, randomNum]);
 }
 
-for(let i=0;i<jetData.length;i++){
+let jetlar = [];
+
+for (let i = 0; i < jetData.length; i++) {
     let randomNum;
     do {
         randomNum = Math.floor(Math.random() * 1500) + 1;
-
     } while (invalidNumbers.includes(randomNum) || usedNumbers.includes(randomNum)); 
-    kataklar[randomNum].style.backgroundImage = "url('/static/images/scooter_icon.png')";
-    kataklar[randomNum].style.backgroundSize = "cover"; // yoki "cover"
-    kataklar[randomNum].style.backgroundRepeat = "no-repeat";
-    kataklar[randomNum].style.backgroundPosition = "center";
+
+    let katak = kataklar[randomNum];
+    katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
+    katak.style.backgroundSize = "cover";
+    katak.style.backgroundRepeat = "no-repeat";
+    katak.style.backgroundPosition = "center";
+    jetlar.push(randomNum);
+
+    katak.addEventListener('mouseover', () => {
+        const infoBox = document.getElementById("info-box");
+        const jetInfo = jetData[i];
+    
+        document.getElementById("info-title").innerText = jetInfo.title;
+        document.getElementById("info-image").src = jetInfo.image;
+        document.getElementById("info-description").innerText = jetInfo.description;
+    
+        const rect = katak.getBoundingClientRect();
+    
+        infoBox.style.left = `${rect.left + 10}px`; // kichik surish
+        infoBox.style.top = `${rect.top + 10}px`;   // kichik surish
+        infoBox.classList.remove("hidden");
+    });
+    
+
+    katak.addEventListener('mouseout', () => {
+        document.getElementById("info-box").classList.add("hidden");
+    });
 }
 
 console.log(jetData);
-
 console.log(uy_list); 
