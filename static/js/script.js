@@ -1,3 +1,4 @@
+
 const konteyner = document.getElementById('konteyner');
 
 const totalDivs = 50 * 30;
@@ -26,40 +27,29 @@ for (let i = 0; i < randomuy; i++) {
         randomNum = Math.floor(Math.random() * 1500) + 1; 
     } while (invalidNumbers.includes(randomNum) || usedNumbers.includes(randomNum)); 
     usedNumbers.push(randomNum);
-
-    kataklar[randomNum - 1].style.backgroundColor = 'blue';
-    kataklar[randomNum].style.backgroundColor = 'blue';
-
+    kataklar[randomNum].style.backgroundImage = "url('/static/images/home.png')";
+    kataklar[randomNum].style.backgroundSize = "cover"; 
+    kataklar[randomNum].style.backgroundRepeat = "no-repeat";
+    kataklar[randomNum].style.backgroundPosition = "center";
+    kataklar[randomNum-1].style.backgroundImage = "url('/static/images/home.png')";
+    kataklar[randomNum-1].style.backgroundSize = "cover";
+    kataklar[randomNum-1].style.backgroundRepeat = "no-repeat";
+    kataklar[randomNum-1].style.backgroundPosition = "center";
     uy_list.push([randomNum - 1, randomNum]);
 }
 
-for(let i=0;i<4;i++){
+for(let i=0;i<jetData.length;i++){
     let randomNum;
     do {
         randomNum = Math.floor(Math.random() * 1500) + 1;
 
     } while (invalidNumbers.includes(randomNum) || usedNumbers.includes(randomNum)); 
-    
-    kataklar[randomNum].style.backgroundImage = "url('images/image.png')";
-
+    kataklar[randomNum].style.backgroundImage = "url('/static/images/scooter_icon.png')";
+    kataklar[randomNum].style.backgroundSize = "cover"; // yoki "cover"
+    kataklar[randomNum].style.backgroundRepeat = "no-repeat";
+    kataklar[randomNum].style.backgroundPosition = "center";
 }
 
-for (let i = 0; i < totalDivs; i++) {
-    const div = document.createElement('div');
-    konteyner.appendChild(div);
-    kataklar.push(div);
+console.log(jetData);
 
-    const tooltip = document.createElement('div');
-    tooltip.classList.add('tooltip');
-    tooltip.textContent = `Cell ${i + 1}`; 
-    div.appendChild(tooltip);
-    div.addEventListener('mouseover', function() {
-        tooltip.style.display = 'block'; 
-    });
-    div.addEventListener('mouseout', function() {
-        tooltip.style.display = 'none';
-    });
-}
-
-
-console.log(uy_list);
+console.log(uy_list); 

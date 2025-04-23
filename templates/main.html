@@ -4,44 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sahifangiz tavsifi bu yerga yoziladi">
+    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Fullscreen rejim -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"> <!-- Status bar rangi -->
+    <meta name="apple-mobile-web-app-title" content="Sahifa nomi"> <!-- iOS Home screen nomi -->
     <title>Grid Kataklar</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 
 </head>
 <body>
     <div class="asosiy">
         <div class="konteyner" id="konteyner"></div>
-
-        <!-- <script id="jet-data" type="application/json">
-            {{ jet_json|safe }}
-        </script> -->
+        <div class="hidden">
+            {%for i in jet%}
+                <h1>i.title</h1>
+                <img src="{{i.image}}" alt="">
+                <p>i.decription</p>
+            {%endfor%}
+        </div>
     </div>
 
-    <!-- JavaScript: jet[] bilan ishlash -->
-    <!-- <script>
-        const jetData = JSON.parse(document.getElementById('jet-data').textContent);
-        const konteyner = document.getElementById('konteyner');
 
-        jetData.forEach(jet => {
-            const div = document.createElement('div');
-            div.className = 'katak';
-            div.style.backgroundColor = 'red';
-            div.dataset.title = jet.title;
-            div.dataset.decription = jet.decription;
-            div.dataset.image = jet.image;
 
-            div.innerHTML = `
-                <div class="izoh">
-                    <h4>${jet.title}</h4>
-                    <p>${jet.decription}</p>
-                    <img src="${jet.image}" alt="" style="width: 100px; height: auto;">
-                </div>
-            `;
-            konteyner.appendChild(div);
-        });
-    </script> -->
 
+    <script>
+        const jetData = JSON.parse('{{ jet_json|safe }}');
+    </script>
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
