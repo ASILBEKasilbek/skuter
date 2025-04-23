@@ -59,12 +59,12 @@ for (let i = 0; i < jetData.length; i++) {
     
         document.getElementById("info-title").innerText = jetInfo.title;
         document.getElementById("info-image").src = jetInfo.image;
-        document.getElementById("info-description").innerText = jetInfo.description;
+        document.getElementById("info-description").innerText = jetInfo.decription;
     
         const rect = katak.getBoundingClientRect();
     
         infoBox.style.left = `${rect.left + 10}px`; // kichik surish
-        infoBox.style.top = `${rect.top + 10}px`;   // kichik surish
+        infoBox.style.top = `${rect.top + 30}px`;   // kichik surish
         infoBox.classList.remove("hidden");
     });
     
