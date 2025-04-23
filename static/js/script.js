@@ -36,6 +36,11 @@ for (let i = 0; i < randomuy; i++) {
     kataklar[randomNum-1].style.backgroundRepeat = "no-repeat";
     kataklar[randomNum-1].style.backgroundPosition = "center";
     uy_list.push([randomNum - 1, randomNum]);
+    let katak=kataklar[randomNum];
+
+    katak.addEventListener('mouseover', () =>{
+        const a=document.getElementById()
+    })
 }
 
 let jetlar = [];
@@ -63,8 +68,8 @@ for (let i = 0; i < jetData.length; i++) {
     
         const rect = katak.getBoundingClientRect();
     
-        infoBox.style.left = `${rect.left + 10}px`; // kichik surish
-        infoBox.style.top = `${rect.top + 30}px`;   // kichik surish
+        infoBox.style.left = `${rect.left + 10}px`; 
+        infoBox.style.top = `${rect.top + 30}px`;  
         infoBox.classList.remove("hidden");
     });
     
