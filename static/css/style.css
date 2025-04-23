@@ -10,7 +10,7 @@ body, html {
 .asosiy {
     width: 1100px;
     height: 600px;
-    background-color: rgb(133, 60, 60);
+    background-color: rgb(141, 66, 66);
     margin: 50px;
     display: flex;
     justify-content: center;
@@ -52,4 +52,34 @@ body, html {
     object-fit: cover;
 }
 
+#info-uy {
+    position: fixed;
+    top: 20px; /* ekranning yuqori qismida paydo bo'lishi uchun */
+    right: 20px; /* ekranning o'ng tomonida */
+    display: none;
+    max-width: 300px;
+    width: calc(100% - 40px); /* kichik ekranlarda sig'ishi uchun */
+    padding: 16px 20px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
 
+#info-uy:not(.hidden) {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#info-uy h1 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}

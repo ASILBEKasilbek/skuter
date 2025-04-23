@@ -36,15 +36,37 @@ for (let i = 0; i < randomuy; i++) {
     kataklar[randomNum-1].style.backgroundRepeat = "no-repeat";
     kataklar[randomNum-1].style.backgroundPosition = "center";
     uy_list.push([randomNum - 1, randomNum]);
-    let katak=kataklar[randomNum];
+    let katak1=kataklar[randomNum-1];
 
-    katak.addEventListener('mouseover', () =>{
-        const a=document.getElementById()
+    katak1.addEventListener('mouseover', () => {
+        console.log("boshi");
+        const infoBox1 = document.getElementById("info-uy");
+        const rect1 = katak1.getBoundingClientRect();
+        infoBox1.style.left = `${rect1.left + 10}px`; 
+        infoBox1.style.top = `${rect1.top + 30}px`;  
+        infoBox1.classList.remove("hidden");
+    });
+
+    katak1.addEventListener('mouseout', () => {
+        document.getElementById("info-uy").classList.add("hidden");
+    });
+
+    let katak2=kataklar[randomNum];
+
+    katak2.addEventListener('mouseover', () =>{
+        console.log("ohiri");
+        const a1=document.getElementById("info-uy");
+        const rect2 = katak2.getBoundingClientRect();
+        a1.style.left = `${rect2.left + 10}px`; 
+        a1.style.top - `${rect2.top + 30}px`; 
+        a1.classList.remove("hidden");
     })
+
+    katak2.addEventListener('mouseout', () => {
+        document.getElementById("info-uy").classList.add("hidden");
+    });
 }
-
 let jetlar = [];
-
 for (let i = 0; i < jetData.length; i++) {
     let randomNum;
     do {
@@ -72,6 +94,7 @@ for (let i = 0; i < jetData.length; i++) {
         infoBox.style.top = `${rect.top + 30}px`;  
         infoBox.classList.remove("hidden");
     });
+
     
 
     katak.addEventListener('mouseout', () => {
