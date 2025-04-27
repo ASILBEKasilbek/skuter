@@ -7,7 +7,7 @@ class JET(models.Model):
     decription=models.TextField()
     image=models.ImageField(upload_to="static/images/")
     zaryad = models.FloatField(help_text="Zaryad darajasi (foizda)")
-
+    tezlik = models.FloatField(help_text="Tezlik (km/s)")
 
 
 
