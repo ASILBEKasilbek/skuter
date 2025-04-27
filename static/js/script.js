@@ -17,83 +17,13 @@ for (let i = 1; i <= 1500; i++) {
         invalidNumbers.push(i);
     }
 }
-<<<<<<< HEAD
-// document.addEventListener('keydown', function(event) {
-//     if (event.key === 'a' || event.key === 'A') {
-//         moveBox1();
-
-//     }
-//     if(event.key === 'd' || event.key === 'D') {
-//         moveBox();
-//     }
-// });
-// function moveBox() {
-
-//     let katak = kataklar[jetlar[0]+1];
-//     let katak1 = kataklar[jetlar[0]];
-//     const bg = window.getComputedStyle(katak).backgroundImage;
-//     if (bg.includes('/static/images/home.png')) {
-//         console.log(43);
-//         return;
-//     }
-//     else{
-//         katak1.style.backgroundColor="rgb(141, 66, 66)";
-//         katak1.style.backgroundImage='';
-//     }
-//     katak1.style.backgroundSize = "cover";
-//     katak1.style.backgroundRepeat = "no-repeat";
-//     katak1.style.backgroundPosition = "center";
-
-//     jetlar[0]=jetlar[0]+1;
-//     katak.style.transform="scaleX(1)";
-//     katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
-//     katak.style.backgroundSize = "cover";
-//     katak.style.backgroundRepeat = "no-repeat";
-//     katak.style.backgroundPosition = "center";
-
-// }
-
-// function moveBox1() {
-
-//     let katak = kataklar[jetlar[0]-1];
-//     let katak1 = kataklar[jetlar[0]];
-//     const bg = window.getComputedStyle(katak).backgroundImage;
-//     if (bg.includes('/static/images/home.png')) {
-//         return;
-//     }
-//     else{
-//         katak1.style.backgroundColor="rgb(141, 66, 66)";
-//         katak1.style.backgroundImage='';
-//     }
-
-//     katak1.style.backgroundSize = "cover";
-//     katak1.style.backgroundRepeat = "no-repeat";
-//     katak1.style.backgroundPosition = "center";
-
-//     jetlar[0]=jetlar[0]-1;
-//     katak.style.transform="scaleX(-1)";
-//     katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
-//     katak.style.backgroundSize = "cover";
-//     katak.style.backgroundRepeat = "no-repeat";
-//     katak.style.backgroundPosition = "center";
-
-// }
-// Assume there's a single element with id="katak"
-
-
-
-
-let positionX = 0;
-const step = 1;
-=======
-let jetlarni_tanlangani = null; 
+let jetlarni_tanlangani = null;
 let tanlangan_samokat=document.getElementById("tanlash");
 tanlangan_samokat.addEventListener('click', () => {
     const jetIndex = document.getElementById("yashirin").innerText;
     jetlarni_tanlangani=jetlar[jetIndex];
 });
 let positionX = 0;
->>>>>>> a278978bf566f2d119c0626bdd1f4677c58fab30
 let positionY = 0;
 let step = 1;
 let p=0.5;
