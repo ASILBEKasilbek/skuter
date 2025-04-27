@@ -5,8 +5,6 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding-top: 50px;
 }
 
 .asosiy {
@@ -56,8 +54,8 @@ body, html {
 
 #info-uy {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 20px; /* ekranning yuqori qismida paydo bo'lishi uchun */
+    right: 20px; /* ekranning o'ng tomonida */
     display: none;
     max-width: 300px;
     width: calc(100% - 40px); /* kichik ekranlarda sig'ishi uchun */

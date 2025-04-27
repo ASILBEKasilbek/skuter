@@ -20,7 +20,7 @@ for (let i = 1; i <= 1500; i++) {
 // document.addEventListener('keydown', function(event) {
 //     if (event.key === 'a' || event.key === 'A') {
 //         moveBox1();
-        
+
 //     }
 //     if(event.key === 'd' || event.key === 'D') {
 //         moveBox();
@@ -59,7 +59,7 @@ for (let i = 1; i <= 1500; i++) {
 //     const bg = window.getComputedStyle(katak).backgroundImage;
 //     if (bg.includes('/static/images/home.png')) {
 //         return;
-//     }    
+//     }
 //     else{
 //         katak1.style.backgroundColor="rgb(141, 66, 66)";
 //         katak1.style.backgroundImage='';
@@ -82,8 +82,8 @@ for (let i = 1; i <= 1500; i++) {
 
 
 
-let positionX = 0; 
-const step = 1; 
+let positionX = 0;
+const step = 1;
 let positionY = 0;
 document.addEventListener('keydown', function(event) {
     if (event.key === 'a' || event.key === 'A') {
@@ -179,11 +179,11 @@ for (let i = 0; i < randomuy; i++) {
     let randomNum;
 
     do {
-        randomNum = Math.floor(Math.random() * 1500) + 1; 
-    } while (invalidNumbers.includes(randomNum) || usedNumbers.includes(randomNum)); 
+        randomNum = Math.floor(Math.random() * 1500) + 1;
+    } while (invalidNumbers.includes(randomNum) || usedNumbers.includes(randomNum));
     usedNumbers.push(randomNum);
     kataklar[randomNum].style.backgroundImage = "url('/static/images/home.png')";
-    kataklar[randomNum].style.backgroundSize = "cover"; 
+    kataklar[randomNum].style.backgroundSize = "cover";
     kataklar[randomNum].style.backgroundRepeat = "no-repeat";
     kataklar[randomNum].style.backgroundPosition = "center";
     kataklar[randomNum-1].style.backgroundImage = "url('/static/images/home.png')";
@@ -196,8 +196,8 @@ for (let i = 0; i < randomuy; i++) {
     katak1.addEventListener('mouseover', () => {
         const infoBox1 = document.getElementById("info-uy");
         const rect1 = katak1.getBoundingClientRect();
-        infoBox1.style.left = `${rect1.left + 10}px`; 
-        infoBox1.style.top = `${rect1.top + 30}px`;  
+        infoBox1.style.left = `${rect1.left + 10}px`;
+        infoBox1.style.top = `${rect1.top + 30}px`;
         infoBox1.classList.remove("hidden");
     });
 
@@ -210,8 +210,8 @@ for (let i = 0; i < randomuy; i++) {
     katak2.addEventListener('mouseover', () =>{
         const a1=document.getElementById("info-uy");
         const rect2 = katak2.getBoundingClientRect();
-        a1.style.left = `${rect2.left + 10}px`; 
-        a1.style.top - `${rect2.top + 30}px`; 
+        a1.style.left = `${rect2.left + 10}px`;
+        a1.style.top - `${rect2.top + 30}px`;
         a1.classList.remove("hidden");
     })
 
@@ -224,7 +224,7 @@ for (let i = 0; i < jetData.length; i++) {
     let randomNum;
     do {
         randomNum = Math.floor(Math.random() * 1500) + 1;
-    } while (invalidNumbers.includes(randomNum) || usedNumbers.includes(randomNum)); 
+    } while (invalidNumbers.includes(randomNum) || usedNumbers.includes(randomNum));
 
     let katak = kataklar[randomNum];
     katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
@@ -240,8 +240,8 @@ for (let i = 0; i < jetData.length; i++) {
         document.getElementById("info-image").src = jetInfo.image;
         document.getElementById("info-description").innerText = jetInfo.decription;
         const rect = katak.getBoundingClientRect();
-        infoBox.style.left = `${rect.left + 10}px`; 
-        infoBox.style.top = `${rect.top + 30}px`;  
+        infoBox.style.left = `${rect.left + 10}px`;
+        infoBox.style.top = `${rect.top + 30}px`;
         infoBox.classList.remove("hidden");
     });
     katak.addEventListener('mouseout', () => {
@@ -258,4 +258,4 @@ for (let i = 0; i < jetData.length; i++) {
 
 console.log(jetlar);
 console.log(jetData);
-console.log(uy_list); 
+console.log(uy_list);
