@@ -4,7 +4,7 @@ import json
 
 def main(request):
     jet = JET.objects.all()
-    jet_list = list(jet.values('title', 'decription', 'image'))  # faqat kerakli fieldlar
+    jet_list = list(jet.values('title', 'decription', 'image','tezlik','zaryad'))  # faqat kerakli fieldlar
     context = {
         'jet': jet,
         'jet_json': json.dumps(jet_list),  # JSON formatga o‘tkazdik

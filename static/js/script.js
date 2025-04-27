@@ -17,6 +17,7 @@ for (let i = 1; i <= 1500; i++) {
         invalidNumbers.push(i);
     }
 }
+<<<<<<< HEAD
 // document.addEventListener('keydown', function(event) {
 //     if (event.key === 'a' || event.key === 'A') {
 //         moveBox1();
@@ -84,94 +85,142 @@ for (let i = 1; i <= 1500; i++) {
 
 let positionX = 0;
 const step = 1;
+=======
+let jetlarni_tanlangani = null; 
+let tanlangan_samokat=document.getElementById("tanlash");
+tanlangan_samokat.addEventListener('click', () => {
+    const jetIndex = document.getElementById("yashirin").innerText;
+    jetlarni_tanlangani=jetlar[jetIndex];
+});
+let positionX = 0;
+>>>>>>> a278978bf566f2d119c0626bdd1f4677c58fab30
 let positionY = 0;
+let step = 1;
+let p=0.5;
+let keysPressed = {};
+
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'a' || event.key === 'A') {
+    keysPressed[event.key.toLowerCase()] = true;
+    if(keysPressed['p']) {
+        if (jetData[0]['tezlik']>step ){
+            step = step + p;
+        }
+    }
+    else if (jetData[0]['tezlik']>=step && step > 1) {
+        step -= p;
+    }
+    if (keysPressed['u']) {
+        if (step > 5) {
+            step -= 5;
+        }
+        else if (step < 5) {
+            step = p;
+        }
+    }
+    if (keysPressed['a']) {
         moveBoxLeft();
     }
-    if (event.key === 'd' || event.key === 'D') {
+    else if (keysPressed['d']) {
         moveBoxRight();
     }
-    if (event.key === 'w' || event.key === 'W') {
-        moveBoxDown();
-    }
-    if (event.key === 's' || event.key === 'S') {
+    else if (keysPressed['w']) {
         moveBoxUp();
+    }
+    else if (keysPressed['s']) {
+        moveBoxDown();
     }
 });
 
+document.addEventListener('keyup', function(event) {
+    keysPressed[event.key.toLowerCase()] = false;
+});
+
+
 function moveBoxRight() {
-    // Check if the current position has a "home" background (optional boundary logic)
-    let katak = kataklar[jetlar[0]];
+    if (jetlarni_tanlangani === null) {
+        console.log('Samokat tanlanmagan');
+        return;
+    }
+    let katak = kataklar[jetlarni_tanlangani];
     const bg = window.getComputedStyle(katak).backgroundImage;
     if (bg.includes('/static/images/home.png')) {
         console.log('Cannot move into home');
         return;
     }
-
-    // Reset previous position's styles
+    console.log(bg);
     katak.style.backgroundColor = 'transparent';
     katak.style.backgroundImage = '';
-
     positionX += step;
-    katak.style.transform = `translateX(${positionX}px) scaleX(1)`; // Move right, face right
+    katak.style.transform = `translate(${positionX}px, ${positionY}px) scaleX(1)`;
     katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
     katak.style.backgroundSize = 'cover';
     katak.style.backgroundRepeat = 'no-repeat';
     katak.style.backgroundPosition = 'center';
 }
-function moveBoxDown(){
-    let katak = kataklar[jetlar[0]];
-    const bg = window.getComputedStyle(katak).backgroundImage;
-    if (bg.includes('/static/images/home.png')) {
-        console.log('Cannot move into home');
-        return;
-    }
-    katak.style.backgroundColor = 'transparent';
-    katak.style.backgroundImage = '';
 
-    positionY -= step;
-    katak.style.transform = `translateY(${positionY}px) `; // Move left, face left
-    katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
-    katak.style.backgroundSize = 'cover';
-    katak.style.backgroundRepeat = 'no-repeat';
-    katak.style.backgroundPosition = 'center';
-}
-function moveBoxUp(){
-    let katak = kataklar[jetlar[0]];
-    const bg = window.getComputedStyle(katak).backgroundImage;
-    if (bg.includes('/static/images/home.png')) {
-        console.log('Cannot move into home');
-        return;
-    }
-    katak.style.backgroundColor = 'transparent';
-    katak.style.backgroundImage = '';
-
-    positionY += step;
-    katak.style.transform = `translateY(${positionY}px)`; // Move left, face left
-    katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
-    katak.style.backgroundSize = 'cover';
-    katak.style.backgroundRepeat = 'no-repeat';
-    katak.style.backgroundPosition = 'center';
-}
 function moveBoxLeft() {
-    let katak = kataklar[jetlar[0]];
+    if (jetlarni_tanlangani === null) {
+        console.log('Samokat tanlanmagan');
+        return;
+    }
+    let katak = kataklar[jetlarni_tanlangani];
     const bg = window.getComputedStyle(katak).backgroundImage;
     if (bg.includes('/static/images/home.png')) {
         console.log('Cannot move into home');
         return;
     }
-
     katak.style.backgroundColor = 'transparent';
     katak.style.backgroundImage = '';
-
     positionX -= step;
-    katak.style.transform = `translateX(${positionX}px) scaleX(-1)`; // Move left, face left
+    katak.style.transform = `translate(${positionX}px, ${positionY}px) scaleX(-1)`;
     katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
     katak.style.backgroundSize = 'cover';
     katak.style.backgroundRepeat = 'no-repeat';
     katak.style.backgroundPosition = 'center';
 }
+
+function moveBoxUp() {
+    if (jetlarni_tanlangani === null) {
+        console.log('Samokat tanlanmagan');
+        return;
+    }
+    let katak = kataklar[jetlarni_tanlangani];
+    const bg = window.getComputedStyle(katak).backgroundImage;
+    if (bg.includes('/static/images/home.png')) {
+        console.log('Cannot move into home');
+        return;
+    }
+    katak.style.backgroundColor = 'transparent';
+    katak.style.backgroundImage = '';
+    positionY -= step;
+    katak.style.transform = `translate(${positionX}px, ${positionY}px)`;
+    katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
+    katak.style.backgroundSize = 'cover';
+    katak.style.backgroundRepeat = 'no-repeat';
+    katak.style.backgroundPosition = 'center';
+}
+
+function moveBoxDown() {
+    if (jetlarni_tanlangani === null) {
+        console.log('Samokat tanlanmagan');
+        return;
+    }
+    let katak = kataklar[jetlarni_tanlangani];
+    const bg = window.getComputedStyle(katak).backgroundImage;
+    if (bg.includes('/static/images/home.png')) {
+        console.log('Cannot move into home');
+        return;
+    }
+    katak.style.backgroundColor = 'transparent';
+    katak.style.backgroundImage = '';
+    positionY += step;
+    katak.style.transform = `translate(${positionX}px, ${positionY}px)`;
+    katak.style.backgroundImage = "url('/static/images/scooter_icon.png')";
+    katak.style.backgroundSize = 'cover';
+    katak.style.backgroundRepeat = 'no-repeat';
+    katak.style.backgroundPosition = 'center';
+}
+
 
 let usedNumbers = [];
 let randomuy=Math.floor(Math.random()*100)+1;
@@ -252,9 +301,14 @@ for (let i = 0; i < jetData.length; i++) {
         document.getElementById("info-title2").innerText = jetInfo.title;
         document.getElementById("info-image2").src = jetInfo.image;
         document.getElementById("info-description2").innerText = jetInfo.decription;
+        document.getElementById("yashirin").innerText = i;
+        console.log(i);
 
     })
 }
+
+
+
 
 console.log(jetlar);
 console.log(jetData);
